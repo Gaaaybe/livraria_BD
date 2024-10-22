@@ -16,6 +16,10 @@ function exibirLivros(listaLivros) {
         <p class="livro__preco" id="preco">R$${livro.preco.toFixed(2)}</p>
         <div class="tags">
           <span class="tag">${livro.categoria}</span>
+          <div class="tags">
+            <button class="tag btn__atualizar" id="btnAtualizarLivro">Atualizar</button>
+            <button class="tag btn__excluir" id="btnExcluirLivro">Excluir</button>
+          </div>
         </div>
       </div>
         `;

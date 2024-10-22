@@ -105,7 +105,6 @@ body {
   background-color: var(--button-color);
   border: none;
   cursor: pointer;
-  height: 44px;
   text-decoration: none;
   color: #fff;
   padding: 10px 16px;
@@ -124,8 +123,9 @@ body {
 
 .livros {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .livro {
@@ -134,7 +134,8 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 644px;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+
 }
 
 .indisponivel {
@@ -166,13 +167,13 @@ body {
 .tags {
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
-  margin-top: 1rem;
+  justify-content: space-between;
   margin-left: 0.5rem;
 }
 
 .tag {
-  text-align: left;
+  text-align: center;
+  align-content: center;
   font-size: 14px;
   font-weight: 500;
   color: var(--text-tag-color);
@@ -180,6 +181,36 @@ body {
   background: rgba(197, 197, 197, 0.25);
   border-radius: 4px;
   margin-right: 1rem;
+}
+
+.btn__excluir,
+.btn__atualizar {
+  font-family: 'Poppins';
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  padding: 5px 4px;
+  border-radius: 4px;
+  margin-right: 1rem;
+
+}
+
+.btn__excluir {
+  background: #c20000;
+}
+
+.btn__atualizar {
+  background: var(--button-color);
+}
+
+.btn__atualizar:hover {
+  color: #cecdcd;
+}
+
+.btn__excluir:hover {
+  color: #cecdcd;
 }
 
 .livros__disponiveis {
