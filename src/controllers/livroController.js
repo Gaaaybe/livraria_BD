@@ -3,7 +3,7 @@ import { autor } from '../models/Autor.js';
 
 class LivroController {
 
-  static async listarLivros(req, res) {
+  static async listarLivros(req, res) { //GET ALL
     try {
       const listaLivros = await livro.find({});
       res.status(200).json(listaLivros);
@@ -12,7 +12,7 @@ class LivroController {
     }
   };
 
-  static async listarLivroPorId(req, res) {
+  static async listarLivroPorId(req, res) { //GET BY ID
     try {
       const id = req.params.id;
       const livroEncontrado = await livro.findById(id);
@@ -22,7 +22,7 @@ class LivroController {
     }
   };
 
-  static async cadastrarLivro(req, res) {
+  static async cadastrarLivro(req, res) { //POST
     const novoLivro = req.body;
     try {
       const autorEncontrado = await autor.findById(novoLivro.autor);
@@ -36,7 +36,7 @@ class LivroController {
     };
   };
 
-  static async atualizarLivro(req, res) {
+  static async atualizarLivro(req, res) { //PUT
     try {
       const id = req.params.id;
       await livro.findByIdAndUpdate(id, req.body);
@@ -46,7 +46,7 @@ class LivroController {
     }
   };
 
-  static async excluirLivro(req, res) {
+  static async excluirLivro(req, res) { //DELETE
     try {
       const id = req.params.id;
       await livro.findByIdAndDelete(id);
@@ -55,7 +55,7 @@ class LivroController {
       res.status(500).json({ message: `${erro.message} - falha na requisição` });
     }
   };
-  static async listarLivrosPorEditora(req, res) {
+  static async listarLivrosPorEditora(req, res) { //GET BY EDITORA
     const editora = req.query.editora;
     try {
       const livrosPorEditora = await livro.find({ editora: editora });
