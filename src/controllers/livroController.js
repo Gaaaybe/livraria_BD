@@ -1,5 +1,6 @@
 import livro from '../models/Livro.js';
 import { autor } from '../models/Autor.js';
+import logger from '../config/logger.js';
 
 class LivroController {
 
@@ -7,7 +8,9 @@ class LivroController {
     try {
       const listaLivros = await livro.find({});
       res.status(200).json(listaLivros);
+      logger.log('info', `GET /livros`);
     } catch (erro) {
+      logger.log('error', `GET /livros - ${erro.message}`);
       res.status(500).json({ message: `${erro.message} - falha na requisição` });
     }
   };
@@ -17,7 +20,9 @@ class LivroController {
       const id = req.params.id;
       const livroEncontrado = await livro.findById(id);
       res.status(200).json(livroEncontrado);
+      logger.log('info', `GET /livros/${id}`);
     } catch (erro) {
+      logger.log('error', `GET /livros/${id} - ${erro.message}`);
       res.status(500).json({ message: `${erro.message} - falha na requisição` });
     }
   };
@@ -28,11 +33,13 @@ class LivroController {
       const autorEncontrado = await autor.findById(novoLivro.autor);
       const livroCompleto = { ...novoLivro, autor: { ...autorEncontrado._doc } };
       const livroCriado = await livro.create(livroCompleto);
+      logger.log('info', `POST /livros - ${JSON.stringify(livroCriado)}`);
       res.status(201).json({
         message: "Criado com sucesso!", livro: livroCriado
       });
     } catch (erro) {
       res.status(500).json({ message: `${erro.message} - Falha ao cadastrar livro.` });
+      logger.log('error', `POST /livros - ${erro.message}`);
     };
   };
 
@@ -41,8 +48,10 @@ class LivroController {
       const id = req.params.id;
       await livro.findByIdAndUpdate(id, req.body);
       res.status(200).json({ message: "Atualizado com sucesso!" });
+      logger.log('info', `PUT /livros/${id} - ${JSON.stringify(req.body)}`);
     } catch (erro) {
       res.status(500).json({ message: `${erro.message} - falha na requisição` });
+      logger.log('error', `PUT /livros/${id} - ${erro.message}`);
     }
   };
 
@@ -50,17 +59,21 @@ class LivroController {
     try {
       const id = req.params.id;
       await livro.findByIdAndDelete(id);
+      logger.log('info', `DELETE /livros/${id}`);
       res.status(200).json({ message: "Excluido com sucesso!" });
     } catch (erro) {
+      logger.log('error', `DELETE /livros/${id} - ${erro.message}`);
       res.status(500).json({ message: `${erro.message} - falha na requisição` });
     }
   };
   static async listarLivrosPorEditora(req, res) { //GET BY EDITORA
     const editora = req.query.editora;
     try {
+      logger.log('info', `GET /livros/busca - ${editora}`);
       const livrosPorEditora = await livro.find({ editora: editora });
       res.status(200).json(livrosPorEditora);
     } catch (erro) {
+      logger.log('error', `GET /livros/busca - ${erro.message}`);
       res.status(500).json({ message: `${erro.message} - falha na busca` });
     }
 
