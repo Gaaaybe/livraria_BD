@@ -1,6 +1,9 @@
 let livros = [];
 const endPointAPI = 'https://guilhermeonrails.github.io/casadocodigo/livros.json';
 getBuscaLivros();
+const button = document.getElementById('btnAtualizarLivro');
+const modal = document.getElementById('modal-update');
+const botaoFechar = document.getElementById('btnFecharModal');
 
 
 async function getBuscaLivros() {
