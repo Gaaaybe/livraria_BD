@@ -20,10 +20,46 @@
 
 <header class="header">
   <h1 class="container__titulo"> <b class="container__titulo-negrito"></b>Books</h1>
+  <button class="btn-cadastro" href="#" id="btnCadastrarLivros">⬆</button>
 </header>
 
 <body>
-  <div id="fade"></div>
+  <dialog id="modal-update">
+    <div class="modal-update__header">
+      <h2>Testando</h2>
+      <button id="btnFecharModal">X</button>
+    </div>
+    <div class="modal-update__body">
+      <form action="" id="formUpdate">
+        <label for="titulo">Título</label>
+        <input type="text" name="titulo" id="titulo" />
+        <label for="autor">Autor</label>
+        <input type="text" name="autor" id="autor" />
+        <label for="preco">Preço</label>
+        <input type="text" name="preco" id="preco" />
+        <label for="disponivel">Disponível</label>
+        <input type="checkbox" name="disponivel" id="disponivel" />
+        <button type="submit">Atualizar</button>
+      </form>
+  </dialog>
+  <dialog id="modal-upload">
+    <div class="modal-upload__header">
+      <h2>Testando</h2>
+      <button id="btnFecharModal">X</button>
+    </div>
+    <div class="modal-upload__body">
+      <form action="" id="formUpdate">
+        <label for="titulo">Título</label>
+        <input type="text" name="titulo" id="titulo" />
+        <label for="autor">Autor</label>
+        <input type="text" name="autor" id="autor" />
+        <label for="preco">Preço</label>
+        <input type="text" name="preco" id="preco" />
+        <label for="disponivel">Disponível</label>
+        <input type="checkbox" name="disponivel" id="disponivel" />
+        <button type="submit">Cadastrar</button>
+      </form>
+  </dialog>
   <section class="banner">
     <h2 class="banner__titulo">Já sabe por onde começar?</h2>
     <p class="banner__texto">Encontre em nossa estante o que precisa para seu desenvolvimento</p>
@@ -281,6 +317,8 @@
       <p>Todos os livros disponíveis por R$ <span id="valor">299,00</span></p>
     </div>
   </section>
+
+
 
 
   <footer class="rodape">
