@@ -24,4 +24,30 @@ function exibirLivros(listaLivros) {
       </div>
         `;
     });
+
+    const buttonsUpdate = document.querySelectorAll('#btnAtualizarLivro');
+    const buttonsFechar = document.querySelectorAll('#btnFecharModal');
+    const buttonsUpload = document.querySelectorAll('#btnCadastrarLivros');
+
+    buttonsUpload.forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = document.getElementById('modal-upload');
+            modal.showModal();
+        });
+    });
+
+    buttonsUpdate.forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = document.getElementById('modal-update');
+            modal.showModal();
+        });
+    });
+    buttonsFechar.forEach(button => {
+        button.addEventListener('click', () => {
+            const modal1 = document.getElementById('modal-update');
+            modal1.close();
+            const modal2 = document.getElementById('modal-upload');
+            modal2.close();
+        });
+    });
 };
