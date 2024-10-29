@@ -16,8 +16,8 @@ class AutorController {
       };
 
       static async listarAutorPorId (req, res) {
+        const id = req.params.id;
         try {
-          const id = req.params.id;
           const autorEncontrado = await autor.findById(id);
           res.status(200).json(autorEncontrado);
           logger.log('info', `GET /autores/${id}`);
@@ -42,8 +42,8 @@ class AutorController {
     };
 
     static async atualizarAutor (req, res) {
+      const id = req.params.id;
       try {
-        const id = req.params.id;
         await autor.findByIdAndUpdate(id, req.body);
         logger.log('info', `PUT /autores/${id} - ${JSON.stringify(req.body)}`);
         res.status(200).json({ message: "Atualizado com sucesso!" });
@@ -54,8 +54,8 @@ class AutorController {
     };
 
     static async excluirAutor (req, res) {
+      const id = req.params.id;
       try {
-        const id = req.params.id;
         await autor.findByIdAndDelete(id);
         logger.log('info', `DELETE /autores/${id}`);
         res.status(200).json({ message: "Excluido com sucesso!" });

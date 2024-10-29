@@ -16,8 +16,8 @@ class LivroController {
   };
 
   static async listarLivroPorId(req, res) { //GET BY ID
+    const id = req.params.id;
     try {
-      const id = req.params.id;
       const livroEncontrado = await livro.findById(id);
       res.status(200).json(livroEncontrado);
       logger.log('info', `GET /livros/${id}`);
@@ -44,8 +44,8 @@ class LivroController {
   };
 
   static async atualizarLivro(req, res) { //PUT
+    const id = req.params.id;
     try {
-      const id = req.params.id;
       await livro.findByIdAndUpdate(id, req.body);
       res.status(200).json({ message: "Atualizado com sucesso!" });
       logger.log('info', `PUT /livros/${id} - ${JSON.stringify(req.body)}`);
@@ -56,8 +56,8 @@ class LivroController {
   };
 
   static async excluirLivro(req, res) { //DELETE
+    const id = req.params.id;
     try {
-      const id = req.params.id;
       await livro.findByIdAndDelete(id);
       logger.log('info', `DELETE /livros/${id}`);
       res.status(200).json({ message: "Excluido com sucesso!" });
