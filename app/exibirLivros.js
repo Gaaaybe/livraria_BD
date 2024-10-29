@@ -8,14 +8,14 @@ function exibirLivros(listaLivros) {
         let disponibilidade = livro.quantidade >0 ? 'livro__imagens' : 'livro__imagens indisponivel';
         elementoInserir.innerHTML += `
         <div class="livro">
-        <img class="${disponibilidade}" src="${livro.imagem}" alt="${livro.alt}" />
+        <img class="livro__imagens" src="${livro.imagem}" />
         <h2 class="livro__titulo">
           ${livro.titulo}
         </h2>
         <p class="livro__descricao">${livro.autor}</p>
         <p class="livro__preco" id="preco">R$${livro.preco.toFixed(2)}</p>
         <div class="tags">
-          <span class="tag">${livro.categoria}</span>
+          <span class="tag">${livro.editora}</span>
           <div class="tags">
             <button class="tag btn__atualizar" id="btnAtualizarLivro">Atualizar</button>
             <button class="tag btn__excluir" id="btnExcluirLivro">Excluir</button>
