@@ -7,7 +7,7 @@ const LivroSchema = new mongoose.Schema({
     editora: { type: String, required: true },
     preco: { type: Number, required: true },
     paginas: { type: Number, required: true },
-    image: {type: String, required: true},
+    categoria: {type: String, required: true},
     autor: AutorSchema
 }, { versionKey: false });
 
