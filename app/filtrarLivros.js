@@ -7,7 +7,7 @@ botoes.forEach(botao => {
 function filtrarLivros() {
     const elementoBtn = document.getElementById(this.id);
     const categoria = elementoBtn.value;
-    let livrosFiltrados = categoria === 'disponivel' ? livros.fzilter(livro => livro.quantidade > 0) : livros.filter(livro => livro.categoria === categoria);
+    let livrosFiltrados = categoria === 'disponivel' ? livros.filter(livro => livro.quantidade > 0) : livros.filter(livro => livro.categoria === categoria);
     console.table(livrosFiltrados);
     exibirLivros(livrosFiltrados);
     if (categoria === 'disponivel') {
