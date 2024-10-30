@@ -30,16 +30,22 @@ body {
 }
 
 .header {
+  display: flex;
   text-align: center;
   width: 100%;
   background-color: var(--bg-color);
   margin: 15px 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container{
+  display: flex;
 }
 .container__titulo,
 .container__titulo-negrito {
     font-family: var(--font-secundaria);
     font-size: 30px;
-    margin-top: 0.34em;
 
 }
 
@@ -195,6 +201,23 @@ body {
   border-radius: 4px;
   margin-right: 1rem;
 
+}
+
+.btn-cadastro {
+  background-color: #326589;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-family: 'Poppins';
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 30px;
+}
+
+.btn-cadastro:hover {
+  background-color: #002f52; /* Azul mais escuro ao passar o mouse */
 }
 
 .btn__excluir {
