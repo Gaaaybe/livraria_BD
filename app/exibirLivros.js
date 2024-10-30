@@ -5,7 +5,6 @@ function exibirLivros(listaLivros) {
     elementoValortotalLivros.innerHTML = '';
     elementoInserir.innerHTML = '';
     listaLivros.forEach(livro => {
-        let disponibilidade = livro.quantidade >0 ? 'livro__imagens' : 'livro__imagens indisponivel';
         elementoInserir.innerHTML += `
         <div class="livro">
         <img class="livro__imagens" src="./imagens/livroImagem.webp" />

@@ -9,7 +9,7 @@ const botaoFechar = document.getElementById('btnFecharModal');
 
 async function getBuscaLivros() {
     const response = await fetch(endPointGetAll);
-    let livros = await response.json();
+    livros = await response.json();
     exibirLivros(livros);
     
     console.table(livros);

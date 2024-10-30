@@ -6,14 +6,13 @@ botoes.forEach(botao => {
 
 function filtrarLivros() {
     const elementoBtn = document.getElementById(this.id);
-    const categoria = elementoBtn.value;
-    let livrosFiltrados = categoria === 'disponivel' ? livros.filter(livro => livro.quantidade > 0) : livros.filter(livro => livro.categoria === categoria);
+    const categoria = elementoBtn.value;    
+    
+    console.log(categoria);
+    console.table(livros);
+    let livrosFiltrados = livros.filter(livro => livro.categoria === categoria);
     console.table(livrosFiltrados);
     exibirLivros(livrosFiltrados);
-    if (categoria === 'disponivel') {
-        const valorTotal = calcularValorTotalLivrosDisponiveis(livrosFiltrados);
-        exibirValorTotalLivrosDisponiveis(valorTotal);
-    }
 };
 
 function exibirValorTotalLivrosDisponiveis(valorTotal) {
