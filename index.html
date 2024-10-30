@@ -30,32 +30,62 @@
     </div>
     <div class="modal-update__body">
       <form action="" id="formUpdate">
+
         <label for="titulo">Título</label>
         <input type="text" name="titulo" id="titulo" />
-        <label for="autor">Autor</label>
-        <input type="text" name="autor" id="autor" />
+
+        <label for="editora">Editora</label>
+        <input type="text" name="editora" id="editora" />
+        
         <label for="preco">Preço</label>
         <input type="text" name="preco" id="preco" />
-        <label for="disponivel">Disponível</label>
-        <input type="checkbox" name="disponivel" id="disponivel" />
+
+        <label for="paginas">Paginas</label>
+        <input type="text" name="paginas" id="paginas" />
+
+        <label for="categoria">Categoria</label>
+        <select name="categoria" id="categoria">
+          <option value="front-end">Front-end</option>
+          <option value="back-end">Back-end</option>
+          <option value="dados">Dados</option>
+        </select>
+
+        <label for="autor">Autor</label>
+        <input type="text" name="autor" id="autor" />
+
         <button type="submit">Atualizar</button>
       </form>
   </dialog>
   <dialog id="modal-upload">
     <div class="modal-upload__header">
       <h2>Testando</h2>
-      <button id="btnFecharModal">X</button>
+      <span class="close" id="btnFecharModal">&times;</span>
     </div>
     <div class="modal-upload__body">
-      <form action="" id="formUpdate">
+      <form action="" id="formUpload">
+
         <label for="titulo">Título</label>
-        <input type="text" name="titulo" id="titulo" />
+        <input type="text" name="titulo" id="titulo" required />
+
+        <label for="editora">Editora</label>
+        <input type="text" name="editora" id="editora" required/>
+        
+        <label for="preco">Preço</label>
+        <input type="number" name="preco" id="preco" required/>
+
+        <label for="paginas">Paginas</label>
+        <input type="number" name="paginas" id="paginas" required/>
+
+        <label for="categoria">Categoria</label>
+        <select name="categoria" id="categoria" required>
+          <option value="front-end">Front-end</option>
+          <option value="back-end">Back-end</option>
+          <option value="dados">Dados</option>
+        </select>
+
         <label for="autor">Autor</label>
         <input type="text" name="autor" id="autor" />
-        <label for="preco">Preço</label>
-        <input type="text" name="preco" id="preco" />
-        <label for="disponivel">Disponível</label>
-        <input type="checkbox" name="disponivel" id="disponivel" />
+
         <button type="submit">Cadastrar</button>
       </form>
   </dialog>
