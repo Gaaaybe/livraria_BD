@@ -14,3 +14,5 @@ async function getBuscaLivros() {
     
     console.table(livros);
 };
+
+window.getBuscaLivros = getBuscaLivros;
