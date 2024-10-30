@@ -2,6 +2,31 @@ const elementoInserir = document.getElementById('livros');
 const elementoValortotalLivros = document.getElementById('valor_total_livros_disponiveis');
 const formUpload = document.getElementById('formUpload');
 
+document.addEventListener('DOMContentLoaded', () => {
+  const barraPesquisa = document.getElementById('barraPesquisa');
+
+  barraPesquisa.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      const livroId = barraPesquisa.value.trim();
+      console.log(livroId);
+      if (livroId) {
+        buscarLivroPorId(livroId);
+      }
+    }
+  });
+});
+
+async function buscarLivroPorId(id) {
+  const response = await fetch(`http://localhost:3000/livros/${id}`);
+  livrosEncontrados = await response.json();
+  if (!response.ok) {
+    alert('Livro não encontrado.');
+    throw new Error('Livro não encontrado');
+  }
+  exibirLivros([livrosEncontrados]);
+}
+
 function exibirLivros(listaLivros) {
   elementoValortotalLivros.innerHTML = '';
   elementoInserir.innerHTML = '';
